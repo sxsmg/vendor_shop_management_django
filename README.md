@@ -1,0 +1,1 @@
+# vendor_shop_management_django
