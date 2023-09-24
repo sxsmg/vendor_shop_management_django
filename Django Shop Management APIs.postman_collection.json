@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "9d456580-e1d8-468a-84e6-5b0834bb429a",
+		"name": "Django Shop Management APIs",
+		"description": "Collection of APIs for Django Shop Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24527038"
+	},
+	"item": [
+		{
+			"name": "Vendor Registration",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\": \"sakshum3\",\"password\": \"password123#$\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/register/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vendor Login",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "payload",
+							"value": "{eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1NjY2ODM0LCJpYXQiOjE2OTU1ODA0MzQsImp0aSI6IjI2MWU2Y2EyYTNjZTQ5OGNiN2ZmNzdlYWRkZjQxYWEwIiwidXNlcl9pZCI6NX0.0M7mAPw2Uu3oMLq6QP63t8oScmlSYxeh4PYa8fwIIJ8}",
+							"type": "string"
+						},
+						{
+							"key": "secret",
+							"value": "fe760f078330006e4552ee23ca2fb4106236990bfa2a7efe4cc6f7dcc3a6c844",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\": \"sakshum3\",\"password\": \"password123#$\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/login/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Vendors (Admin Access)",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "payload",
+							"value": "{eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1NjY2OTY3LCJpYXQiOjE2OTU1ODA1NjcsImp0aSI6IjI4MTgzNDI0YmY0YTQ5YmQ5YTk3NjEyZjBmNGRmOGNkIiwidXNlcl9pZCI6NX0.2oF3x9g2ri-QIYldlwIe6MWqSMV6Mswehga789E-B9o}",
+							"type": "string"
+						},
+						{
+							"key": "secret",
+							"value": "fe760f078330006e4552ee23ca2fb4106236990bfa2a7efe4cc6f7dcc3a6c844",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your_admin_access_token"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/vendors/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"vendors",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Vendor (Admin Access)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer your_admin_access_token"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"company_name\": \"Company\",\"email\": \"company@example.com\",\"phone_number\": \"123-456-7890\",\"address\": \"123 Main St, City\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/vendors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"vendors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Shops (Authenticated Access)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1NjY3MDYxLCJpYXQiOjE2OTU1ODA2NjEsImp0aSI6ImEwYTU1MzUzZGI0YzQ3YjZiNGIzZmU2ZGYxZTFkZjljIiwidXNlcl9pZCI6NX0.E3Xr510NmxTSRZar0iXHR7INLDCam1nEvUPNDJtsEZA"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/shops",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"shops"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Shop (Authenticated Access)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1NjY3MDYxLCJpYXQiOjE2OTU1ODA2NjEsImp0aSI6ImEwYTU1MzUzZGI0YzQ3YjZiNGIzZmU2ZGYxZTFkZjljIiwidXNlcl9pZCI6NX0.E3Xr510NmxTSRZar0iXHR7INLDCam1nEvUPNDJtsEZA"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"Shop Name\",\"description\": \"Shop Description\",\"business_type\": \"grocery\",\"latitude\": 40.7128,\"longitude\": -74.0060}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/shops/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"shops",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
